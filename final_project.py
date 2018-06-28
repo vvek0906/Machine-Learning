@@ -1,4 +1,4 @@
-#%matplotlib inline
+
 
 import matplotlib
 matplotlib.rcParams['figure.figsize'] = (12, 12)
@@ -14,8 +14,8 @@ sys.path.append("ud120-projects-master/")
 
 from feature_format import featureFormat, targetFeatureSplit
 
-### features_list is a list of strings, each of which is a feature name.
-### The first feature must be "poi".
+# features_list is a list of strings, each of which is a feature name.
+## The first feature must be "poi".
 features_list = ['poi',
         'salary',
         'deferral_payments',
@@ -25,8 +25,8 @@ features_list = ['poi',
         'loan_advances',
         ] # You will need to use more features
 
-### Load the dictionary containing the dataset
-with open("ud120-projects-master/final_project/final_project_dataset.pkl", "r") as data_file:
+# Load the dictionary containing the dataset
+with open("ud120-projects-master/final_project_dataset.pkl", "r") as data_file:
     data_dict = pickle.load(data_file)
 
 # The data contains a TOTAL sample, which will confuse our classifier if we don't eliminate it.
@@ -39,9 +39,7 @@ from matplotlib.colors import ListedColormap
 data = featureFormat(data_dict, features_list)
 labels, features = targetFeatureSplit(data)
 
-# Note: It appears that pandas.scatter_matrix doesn't quite work
-#       as advertised, in the documentation. If it did, this wouldn't
-#       be necessary. You could pass a colormap, instead.
+
 palette = {0 : 'blue', 1 : 'red'}
 labels_c = map(lambda x: palette[int(x)], labels)
 
@@ -98,7 +96,7 @@ from sklearn                  import svm, tree
 from sklearn.ensemble         import AdaBoostClassifier
 from sklearn.metrics          import precision_score, recall_score
 
-sys.path.append("ud120-projects-master/final_project/")
+sys.path.append("ud120-projects-master/")
 from tester                   import test_classifier
 
 print "Trying the SVM classifier..."
@@ -156,7 +154,7 @@ labels, features = targetFeatureSplit(data)
 clf = tree.DecisionTreeClassifier(splitter='best', criterion='entropy')
 test_classifier(clf, data_dict, features_list)
 
-# zip(*(...)) = transpose(...)
+
 ys, xs = zip(*[(item[1]['poi'], item[1]['expenses_and_poi_contact']) for item in data_dict.items()])
 plt.figure(figsize=(4, 4))
 plt.scatter(xs, ys)
