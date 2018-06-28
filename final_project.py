@@ -10,7 +10,7 @@ import sys
 from matplotlib     import pyplot as plt
 from operator       import itemgetter
 
-sys.path.append("ud120-projects-master/tools/")
+sys.path.append("ud120-projects-master/")
 
 from feature_format import featureFormat, targetFeatureSplit
 
