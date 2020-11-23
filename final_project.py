@@ -1,11 +1,12 @@
 
 
 import matplotlib
-matplotlib.rcParams['figure.figsize'] = (12, 12)
+matplotlib.rcParams['figure.figsize'] = (12, 12) #setting up config parameters for all plots.
 
 import numpy       as np
-import pickle
-import sys
+import pickle 
+import sys #This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.
+#It is always available. The list of command line arguments passed to a Python script.
 
 from matplotlib     import pyplot as plt
 from operator       import itemgetter
